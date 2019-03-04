@@ -1,0 +1,429 @@
+@echo off
+chcp 65001
+title Menútron 5000
+
+
+rem recuerdo que estoy usando el windows server 2003 resource tool kit para comandos como sleep. 
+
+
+
+echo  _____________________________________
+echo /SCRIPT CREADO POR: IVÁN GARCÍA SOLERA\
+echo (                                     )   
+echo (CREADO EL 21/02/2019                 )
+echo \-------------------------------------/
+
+echo.
+echo.
+
+
+
+
+
+echo _   _ _____ _       ___    _   _ _   ____  ___  ___   _   _ _____ 
+echo( ) ( )  _  ( )     / _ \  ( ) ( ) ) ( )  \/  ) / _ \ ( \ ( )  _  )
+echo( )_( ) ) ( ( )    / /_\ \ ( )_( ) ) ( ) .  . )/ /_\ \(  \( ) ) ( )
+echo(  _  ) ) ( ( )    (  _  ) (  _  ) ) ( ) )\/( )  _ ( ) . ` ) (  ( (
+echo( ) ( \ \_/ / )____( ) ( ) ( ) ( ) )_( ) )  ( )( ) ( )( )\  \ \_/ /
+echo\_) (_/\___/\_____/\_) (_/ \_) (_/\___/\_)  (_/\_) (_/\_) \_/\___/ 
+                                                                   
+                                                                   
+                                       
+rem este es mi proyecto de SOM. Nuestro profesor nos mandó hacer un menú con 6 opciones:
+
+rem 0) salir 
+rem 1) Mostrar los procesos del sistema
+rem 2) Realizar una operación 1ue utilice variables
+rem 3) Solicitar el nombre y edad del usuario e indicar la diferencia con el creador
+rem 4) Realizar una operación aritmética 
+rem 5) Tarea a elegir por el creador
+
+rem explico el objetivo de este script para posibles futuras revisiones.
+rem desde aquí empieza lo que es el script
+echo.
+echo.
+echo.
+echo.
+echo.
+
+
+set /p nombre= Bueno, antes de elegir las diferentes opciones, ¿cómo te llamas?
+echo vale %nombre%, empecemos con el menú..
+sleep 3
+cls
+
+:volveramenú
+echo   ____________ 
+echo  (### MENÚ ###)
+echo   -------------  
+
+echo 0.  Salir del menú
+echo 1.  Ver los procesos del sistema
+echo 2.  Ver el número de procesadores en este equipo
+echo 3.  Ver cuanto años te llevas con el creador
+echo 4.  Hacer una división
+echo 5.  Jugar a Berserk
+echo.
+echo recuerdo que este script usa el resource kit tools de windows server 2003
+
+set /p opciones= Seleccione una opción [0-5]: 
+
+if %opciones%==0 goto opción0
+if %opciones%==1 goto opción1
+if %opciones%==2 goto opción2
+if %opciones%==3 goto opción3
+if %opciones%==4 goto opción4
+if %opciones%==5 goto opción5
+
+echo Solo hay 6 opciones, mira que te lo he dejado cristalino eh.
+timeout 5 >nul
+cls
+goto volveramenú
+
+:opción0
+cls
+sleep 2
+echo Has elegido la opción salir...
+sleep 2 
+cls 
+echo  _   _    __    ___  ____   __      _____  ____  ____    __   
+echo ( )_( )  /__\  / __)(_  _) /__\    (  _  )(_  _)(  _ \  /__\  
+echo ) _ (  /(__)\ \__ \  )(  /(__)\    )(_)(   )(   )   / /(__)\ \
+echo (_) (_)(__)(__)(___/ (__)(__)(__)  (_____) (__) (_)\_)(__)(__)
+sleep 2
+exit
+
+
+:opción1
+cls 
+sleep 2
+echo Has elegido la opción de ver los procesos del sistema..
+sleep 2
+echo aquí están!
+sleep 1
+tasklist
+echo.
+echo.
+echo Pulsa cualquier tecla para volver al menú
+pause >nul
+cls
+sleep 1
+goto volveramenú
+
+
+:opción2
+cls 
+sleep 2
+echo Has elegido ver el número de procesadores de tu equipo..
+sleep 1
+cls
+echo estos son el número de procesadores instalados:
+echo %NUMBER_OF_PROCESSORS%
+echo.
+echo.
+echo Pulsa cualquier tecla para volver al menú
+pause >nul
+cls
+sleep 1
+goto volveramenú
+
+:opción3
+cls
+sleep 2
+echo Has elegido ver la diferencia de edad entre tu y el creador del script...
+sleep 1
+cls
+set edad2=17
+set/p edad1=Vale %nombre%, ¿cuántos años tienes?
+set/a diferencia= (%edad1% - %edad2%) 
+cls 
+echo Calculando..
+sleep 2
+echo Bueno aquí está el resultado
+sleep 2
+cls
+echo %nombre% y el creador de este script se llevan %diferencia% años de diferencia
+echo.
+echo.
+echo Pulsa cualquier tecla para volver al menú
+pause >nul
+cls 
+sleep 1
+goto volveramenú
+
+:opción4
+cls
+sleep 2
+echo Has elegido hacer una división..
+sleep 1
+cls
+set /p número1= ¿Cúal es el dividendo?
+set /p número2= ¿Cúal es el divisor?
+cls 
+echo OK. Calculando..
+sleep 2
+cls 
+sleep 2
+cls
+echo bueno, aquí está el resultado..
+sleep 2
+cls 
+set /a división= (%número1% / %número2%)
+echo el resultado es %división%
+echo.
+echo.
+echo Pulsa cualquier tecla para volver al menú
+pause >nul
+cls
+goto volveramenú
+
+:opción5
+cls 
+sleep 2
+echo Bienvenido a...
+sleep 2
+
+echo                          ____  ____  ____  ___  ____  ____  _  _ 
+echo                         (  _ \( ___)(  _ \/ __)( ___)(  _ \( )/ )
+echo                         ) _ -) )__)  )   /\__ \ )__)  )   / )  ( 
+echo                         (____/(____)(_)\_)(___/(____)(_)\_)(_)\_)
+echo.
+echo.
+echo.
+
+echo ----------------------Pulse cualquier tecla para empezar la partida--------------------------
+pause >nul
+cls
+echo Eres un guerrero que debe enfrentarse a diferentes enemigos.
+sleep 1
+echo Elige la opción correcta si quieres sobrevivir..
+sleep 1
+
+echo Entras en una taberna, ves a dos borrachos pelearse.
+sleep 2
+echo - EH, DEJAME BEBER MÁS
+sleep 2
+echo - NO, QUE LA ULTIMA VEZ TUVE QUE SACARTE DEL POZO
+sleep 2
+echo Detrás de ellos, unos bandidos están amenazando al tabernero con matarlo si le cobra las bebidas..
+
+echo.
+echo.
+echo 1) Te vas directo a por los bandidos desenvainando la espada
+echo 2) Pasas de la movida, suficiente tienes con lo tuyo como para meterte en más problemas..
+
+set /p taberna= ¿Que haces?
+if %taberna%==1 goto muerte1
+if %taberna%==2 goto pelea1
+
+:muerte1
+cls 
+sleep 2
+echo Los bandidos se asustan por tu llegada, pero ese temor se va cuando su lider saca su ballesta y te dispara, dandote de lleno en el pecho
+sleep 2
+echo.
+sleep 2
+echo Pierdes 100hp
+sleep 2
+echo Caes al suelo, muerto.
+echo.
+sleep 1
+echo -ESO TE PASA POR HACERTE EL HÉROE, PAYASO..
+sleep 3
+cls
+echo  _   _    __    ___    __  __  __  __  ____  ____  ____  _____ 
+echo ( )_( )  /__\  / __)  (  \/  )(  )(  )( ___)(  _ \(_  _)(  _  )
+echo  ) _ (  /(__)\ \__ \   )    (  )(__)(  )__)  )   /  )(   )(_)( 
+echo (_) (_)(__)(__)(___/  (_/\/\_)(______)(____)(_)\_) (__) (_____) 
+sleep 3
+echo Pulsa cualquier tecla para volver al menú del juego
+pause >nul
+goto opción5
+
+:pelea1
+cls
+sleep 2
+echo cansado, le pides a la camarera una mesa. Te sientas a esperar..
+sleep 2
+echo un bandido se fija en ti y se acerca
+sleep 2
+echo -EH TU! TU NO ERES DE AQUÍ Y A MI NO ME GUSTAN LOS EXTRANJEROS.. A NO SER QUE PAGUEN JEJE
+sleep 2
+echo la camarera intenta calmar la situación, pero el bandido la empuja
+sleep 2
+echo -QUITATE DE MI VISTA, ESCORIA. TRABAJAMOS PARA EL CONDE Y COMO ME TOQUES LAS NARICES OS MATAREMOS A TODOS.
+sleep 2
+echo has oido todo lo que querías oir
+echo.
+echo 1) Le sueltas un puñetazo al bandido y lo rematas con tu espada. Uno menos.
+echo 2) Te vas sin hacer nada de ruido. Ya tienes lo que querías.
+echo.
+echo.
+set /p pelea2= ¿Qué haces?
+if %pelea2%==1 goto huir
+if %pelea2%==2 goto muerte2
+
+:muerte2
+cls
+sleep 2
+echo el bandido furioso te grita
+sleep 2
+echo -A MI NO ME DES LA ESPALDA, EXTRANJERO
+sleep 2 
+echo el bandido te clava un puñal en el cuello
+sleep 2
+echo. 
+echo Pierdes 100hp
+sleep 2
+echo Caes al suelo ahogandote con tu sangre mientras escuchas como se rie el bandido
+sleep 2
+echo ( )_( )  /__\  / __)  (  \/  )(  )(  )( ___)(  _ \(_  _)(  _  )
+echo  ) _ (  /(__)\ \__ \   )    (  )(__)(  )__)  )   /  )(   )(_)( 
+echo (_) (_)(__)(__)(___/  (_/\/\_)(______)(____)(_)\_) (__) (_____)
+sleep 3
+cls
+goto opción5
+
+:huir 
+cls
+sleep 2
+echo huyes antes de que los bandidos puedan levantarse de la mesa. Te escondes cerca del castillo del conde. Va a venir a por ti.
+sleep 2
+echo pasan las horas y ves a los soldados del conde buscandote. 
+echo.
+echo 1) Te infiltras en el castillo para matar al conde. Va a ser una pelea dificil
+echo 2) Te lanzas a por los soldados. Con suerte no molestarán.
+echo.
+set /p infiltración=¿Qué haces?
+
+if %infiltración%==1 goto castillo
+if %infiltración%==2 goto muerte3
+
+:muerte3
+cls
+sleep 2
+echo sales corriendo de tu escondite, desenvainas la espada y consigues matar a un soldados
+sleep 2
+echo el capitán saca el silbato. De repente, te ves rodeado de  soldados con lanzas
+sleep 2 
+echo en un instante, acabas ensartado.
+sleep 2
+echo.
+echo.
+echo Pierdes 100hp
+echo.
+echo ( )_( )  /__\  / __)  (  \/  )(  )(  )( ___)(  _ \(_  _)(  _  )
+echo  ) _ (  /(__)\ \__ \   )    (  )(__)(  )__)  )   /  )(   )(_)( 
+echo (_) (_)(__)(__)(___/  (_/\/\_)(______)(____)(_)\_) (__) (_____)
+sleep 3
+cls
+goto opción5
+
+:castillo
+cls
+sleep 2
+echo encuentras la puerta del castillo sin soldados custodiandola. Entras y en un santiamen te encuentras frente a la puerta del conde.
+sleep 2
+echo entras y te encuentras al conde frente a tí.
+sleep 2
+echo -ME SORPRENDE QUE HAYAS LLEGADO HASTA AQUÍ.¿CREES QUE PODRÁS CONMIGO?
+echo.
+echo 1) Desenvainas la espada y te lanzas a por el
+echo 2) Dices -ajajaj en realidad no se, me he perdido de camino al mercado
+
+set /p pelea3=¿Qué haces?
+if %pelea3%==1 goto peleafinal
+if %pelea3%==2 goto iokse
+
+:iokse
+cls
+sleep 2
+echo al conde se le cambia la cara por completo
+sleep 2 
+echo -PERO... ¿TU ERES TONTO?
+sleep 2
+echo ofendido, te vas de la sala, llamando al conde de todo menos bonito..
+sleep 2
+cls
+echo  _   _    __    ___           ___    __    _  _    __    ____  _____  ___ 
+echo ( )_( )  /__\  / __)         / __)  /__\  ( \( )  /__\  (  _ \(  _  )(__ )
+echo  ) _ (  /(__)\ \__ \        ( (_-. /(__)\  )  (  /(__)\  )(_) ))(_)(  (_/ 
+echo (_) (_)(__)(__)(___/()()()   \___/(__)(__)(_)\_)(__)(__)(____/(_____) (_) 
+
+echo.
+echo.
+echo Pulsa cualquier tecla para volver al menú
+pause >nul
+
+cls 
+sleep 2
+goto volveramenú
+
+
+:peleafinal
+cls 
+sleep 2
+echo el conde saca su espada y empezáis a luchar
+sleep 2
+echo el conde es más poderoso que tú pero tu estás lleno de
+echo.
+sleep 2
+echo 1) Músculos
+echo 2) Determinación
+echo. 
+echo.
+sleep 1
+set /p finalfinalisimo= ¿Qué tienes?
+if %finalfinalisimo%==1 goto musculitos4thewin
+if %finalfinalisimo%==2 goto imfilledwithdetermination
+
+:musculitos4thewin
+cls 
+sleep 2
+echo tus músculos te ofrecen una gran fuerza. Coges tu gran espada y de un tajo cortas por la mitad al conde
+sleep 2
+echo Has conseguido vengarte 
+sleep 2
+cls
+echo  _   _    __    ___      ___    __    _  _    __    ____  _____  
+echo ( )_( )  /__\  / __)    / __)  /__\  ( \( )  /__\  (  _ \(  _  )
+echo  ) _ (  /(__)\ \__ \   ( (_-. /(__)\  )  (  /(__)\  )(_) ))(_)(   
+echo (_) (_)(__)(__)(___/   \___/(__)(__)(_)\_)(__)(__)(____/(_____)  
+
+echo.
+echo.
+echo Pulsa cualquier tecla para volver al menú
+pause >nul
+
+cls 
+sleep 2
+goto volveramenú
+
+
+:imfilledwithdetermination
+cls
+sleep 2
+echo tu gran determinación hace que te des cuenta de una trampilla  al lado del trono del conde
+sleep 2
+echo rechazando el ataque del conde, consigues correr hacia el trono
+sleep 2
+echo -PERO QUE HACES, ESCORIA. ¿HUYES PARA SALVARTE?
+sleep 2
+echo cuando se acerca, tiras de la planca. El conde cae y a los 5 segundos dejas de escuchar sus gritos
+sleep 2
+echo Has conseguido vengarte
+sleep 2
+cls
+echo  _   _    __    ___      ___    __    _  _    __    ____  _____  
+echo ( )_( )  /__\  / __)    / __)  /__\  ( \( )  /__\  (  _ \(  _  )
+echo  ) _ (  /(__)\ \__ \   ( (_-. /(__)\  )  (  /(__)\  )(_) ))(_)(   
+echo (_) (_)(__)(__)(___/   \___/(__)(__)(_)\_)(__)(__)(____/(_____)  
+
+echo.
+echo.
+echo Pulsa cualquier tecla para volver al menú
+pause >nul
+
+cls 
+sleep 2
+goto volveramenú
